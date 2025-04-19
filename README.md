@@ -8,6 +8,8 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
 
    ```bash
    npm install
+
+   npx expo install react-native-safe-area-context react-native-gesture-handler react-native-reanimated
    ```
 
 2. Start the app
