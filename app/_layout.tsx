@@ -8,7 +8,7 @@ export default function Layout() {
   return (
     <PaperProvider theme={theme}>
       <BreadProvider>
-        <View className="flex-1 bg-white"> {/* 👈 Add NativeWind styling here */}
+        <View className="flex-1 bg-white">
           <Stack screenOptions={{ headerShown: false }} />
         </View>
       </BreadProvider>
