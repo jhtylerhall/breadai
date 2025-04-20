@@ -11,7 +11,7 @@ export default function Home() {
 
   return (
     <View className="flex-1 justify-center items-center bg-bread">
-      <Text className="text-white text-2xl font-bold">🍞 Tailwind is working!</Text>
+      <Text className="text-white text-2xl font-bold">Home page</Text>
     </View>
   );
 }
