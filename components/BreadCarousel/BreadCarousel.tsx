@@ -43,7 +43,7 @@ function BreadCarouselComponent() {
       snapToAlignment="center"
       snapToInterval={cardWidth + 16}
       decelerationRate="fast"
-      contentContainerStyle={{ paddingHorizontal: 20 }}
+      contentContainerStyle={{ paddingHorizontal: 20, paddingVertical: 40 }}
       keyExtractor={(item) => item.name}
       renderItem={renderFlatListItem}
     />
