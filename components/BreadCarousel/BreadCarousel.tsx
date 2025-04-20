@@ -5,6 +5,8 @@ import { Card, Text } from "react-native-paper";
 const { width } = Dimensions.get("window");
 
 type BreadItem = { name: string; description: string };
+const keyExtractor = (item: BreadItem) => (item.name);
+const CONTAINER_STYLE = { paddingHorizontal: 20, paddingVertical: 40 }
 
 const breadTypes: BreadItem[] = [
   { name: "Sourdough", description: "Tangy and crusty" },
@@ -43,8 +45,8 @@ function BreadCarouselComponent() {
       snapToAlignment="center"
       snapToInterval={cardWidth + 16}
       decelerationRate="fast"
-      contentContainerStyle={{ paddingHorizontal: 20, paddingVertical: 40 }}
-      keyExtractor={(item) => item.name}
+      contentContainerStyle={CONTAINER_STYLE}
+      keyExtractor={keyExtractor}
       renderItem={renderFlatListItem}
     />
   );

@@ -1,5 +1,6 @@
 import { Stack } from 'expo-router';
 import { PaperProvider } from 'react-native-paper';
+import { View } from 'react-native';
 import theme from '../constants/theme';
 import { BreadProvider } from '../context/BreadContext';
 
@@ -7,7 +8,9 @@ export default function Layout() {
   return (
     <PaperProvider theme={theme}>
       <BreadProvider>
-        <Stack screenOptions={{ headerShown: false }} />
+        <View className="flex-1 bg-white"> {/* 👈 Add NativeWind styling here */}
+          <Stack screenOptions={{ headerShown: false }} />
+        </View>
       </BreadProvider>
     </PaperProvider>
   );

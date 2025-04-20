@@ -10,11 +10,8 @@ export default function Home() {
   }, [router]);
 
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text variant="headlineMedium">Welcome to Bread.ai</Text>
-      <Button mode="contained" onPress={onStartBaking}>
-        Start Baking
-      </Button>
+    <View className="flex-1 justify-center items-center bg-bread">
+      <Text className="text-white text-2xl font-bold">🍞 Tailwind is working!</Text>
     </View>
   );
 }
