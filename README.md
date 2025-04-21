@@ -7,13 +7,23 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
 1. Install dependencies
 
    ```bash
+   npx install expo
+
    npm install
+
+   npx expo install react-native-safe-area-context react-native-gesture-handler react-native-reanimated
    ```
 
 2. Start the app
 
    ```bash
     npx expo start
+   ```
+
+2. Re-start the app
+
+   ```bash
+    npx expo start --clear
    ```
 
 In the output, you'll find options to open the app in a
