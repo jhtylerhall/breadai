@@ -16,7 +16,42 @@
 
 ## 📁 Project Structure
 
-<pre lang="markdown"><code> ``` breadai/ ├── assets/ # Image assets (icons, bread backgrounds, etc.) ├── components/ # Reusable UI components │ └── buttons/ # Custom buttons like StartRecipe, StartBaking ├── context/ # Global app state via React Context (e.g., BreadContext) ├── constants/ # Theme and global styling ├── types/ # Shared TypeScript types ├── app/ # Expo Router screens (e.g., index, start) ├── App.tsx # App entry point ├── app.json # Expo configuration └── ... # Babel, Tailwind, and ESLint configs ``` </code></pre>
+```
+breadai/
+├── app/                                   # Expo Router screens
+│   ├── _layout.tsx                        # Global layout wrapper with nav/context
+│   ├── index.tsx                          # Home screen
+│   ├── start.tsx                          # Start baking screen
+│   └── recipe.tsx                         # Recipe display screen (WIP or stub)
+│
+├── assets/                                # Local image and icon assets
+│   └── images/
+│       └── breads/                        # Backgrounds for each bread type
+│
+├── components/                            # Reusable UI components
+│   ├── BreadCarousel/                     # Horizontal bread selector
+│   │   └── BreadCarousel.tsx
+│   ├── buttons/                           # App-specific buttons
+│   │   ├── StartRecipe/StartRecipe.tsx
+│   │   └── StartBaking/StartBaking.tsx
+│   └── TopNav/TopNav.tsx                  # Custom top app bar
+│
+├── constants/
+│   └── theme.ts                           # React Native Paper theme setup
+│
+├── context/
+│   └── BreadContext.tsx                   # Global context for selected bread and step
+│
+├── types/
+│   └── Bread.ts                           # TypeScript types for bread & recipe steps
+│
+├── tailwind.config.js                     # Tailwind/NativeWind configuration
+├── eslint.config.mjs                      # ESLint flat config for code quality
+├── app.json                               # Expo app configuration
+├── App.tsx                                # App entry point (wrapped by Expo Router)
+├── package.json                           # Project dependencies and scripts
+└── README.md                              # You are here 🍞
+```
 
 ## 📱 Getting Started
 
