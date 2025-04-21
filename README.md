@@ -21,8 +21,8 @@ breadai/
 ├── app/                                   # Expo Router screens
 │   ├── _layout.tsx                        # Global layout wrapper with nav/context
 │   ├── index.tsx                          # Home screen
-│   ├── start.tsx                          # Start baking screen
-│   └── recipe.tsx                         # Recipe display screen (WIP or stub)
+│   ├── recipes.tsx                        # Select bread to bake or see recipe
+│   └── achievements.tsx                   # WIP
 │
 ├── assets/                                # Local image and icon assets
 │   └── images/
