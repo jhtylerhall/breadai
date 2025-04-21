@@ -7,17 +7,17 @@ interface StartRecipeProps {
   bread: BreadItem;
 }
 
-function StartRecipeComponent(props: StartRecipeProps) {
+function StartBakingComponent(props: StartRecipeProps) {
   const { bread } = props;
   const { setSelectedBread } = useBread();
   const onSelectRecipe = useCallback(() => {
     setSelectedBread(bread.name);
   }, [bread, setSelectedBread]);
   return (
-    <Button icon="eye" mode="elevated" onPress={onSelectRecipe}>
-      See Recipe
+    <Button icon="chef-hat" mode="elevated" onPress={onSelectRecipe}>
+      Start Baking
     </Button>
   );
 }
 
-export const StartRecipe = memo(StartRecipeComponent);
+export const StartBaking = memo(StartBakingComponent);
