@@ -1,22 +1,37 @@
-import { memo } from "react";
+import { memo, useState, useCallback } from "react";
 import { Appbar } from "react-native-paper";
-import { Image } from "react-native";
+import { Image, View } from "react-native";
 import MainIcon from "@/assets/images/icons/MainIcon.png";
+import { CustomTimePicker } from "@/components/time/CustomTimePicker/CustomTimePicker";
 
 function TopNavComponent() {
+  const [timePickerVisible, setTimePickerVisble] = useState(false);
+  const onPressTimer = useCallback(() => {
+    setTimePickerVisble(true);
+  }, []);
+  const onPressAccount = useCallback(() => {
+    // TODO: open account page
+  }, []);
+
   return (
-    <Appbar.Header className="bg-bread">
-      {/* TODO: have back action control going back in steps */}
-      {/* <Appbar.BackAction onPress={() => {}} /> */}
-      <Image
-        source={MainIcon}
-        className="w-9 h-9 ml-2 rounded-full"
-        resizeMode="contain"
+    <View>
+      <CustomTimePicker
+        visible={timePickerVisible}
+        setVisible={setTimePickerVisble}
       />
-      <Appbar.Content title="" />
-      <Appbar.Action icon="timer" onPress={() => {}} />
-      <Appbar.Action icon="account" onPress={() => {}} />
-    </Appbar.Header>
+      <Appbar.Header className="bg-bread">
+        {/* TODO: have back action control going back in steps */}
+        {/* <Appbar.BackAction onPress={() => {}} /> */}
+        <Image
+          source={MainIcon}
+          className="w-9 h-9 ml-2 rounded-full"
+          resizeMode="contain"
+        />
+        <Appbar.Content title="" />
+        <Appbar.Action icon="timer" onPress={onPressTimer} />
+        <Appbar.Action icon="account" onPress={onPressAccount} />
+      </Appbar.Header>
+    </View>
   );
 }
 
