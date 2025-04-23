@@ -1,4 +1,5 @@
 import { BreadType, RecipeStep } from "@/types/Bread";
+import { TimerEvent } from "@/types/Time";
 import React, {
   createContext,
   useCallback,
@@ -13,6 +14,9 @@ interface IBreadContext {
   currentStep: RecipeStep;
   setCurrentStep: (step: RecipeStep) => void;
   resetBreadState: () => void;
+  timers: TimerEvent[];
+  addTimers: (timers: TimerEvent[]) => void;
+  removeTimers: (id: string[]) => void;
 }
 
 const BreadContext = createContext<IBreadContext | undefined>(undefined);
@@ -22,11 +26,23 @@ export const BreadProvider: React.FC<{ children: React.ReactNode }> = ({
 }) => {
   const [selectedBread, setSelectedBread] = useState<BreadType>(null);
   const [currentStep, setCurrentStep] = useState<RecipeStep>(null);
-
+  const [timers, setTimers] = useState<TimerEvent[]>([]);
   const resetBreadState = useCallback(() => {
     setSelectedBread(null);
     setCurrentStep(null);
   }, []);
+  const addTimers = useCallback(
+    (nextTimers: TimerEvent[]) => {
+      setTimers([...timers, ...nextTimers]);
+    },
+    [timers]
+  );
+  const removeTimers = useCallback(
+    (ids: string[]) => {
+      setTimers(timers.filter((timer) => !ids.includes(timer.id)));
+    },
+    [timers]
+  );
   const value = useMemo(
     () => ({
       selectedBread,
@@ -34,8 +50,18 @@ export const BreadProvider: React.FC<{ children: React.ReactNode }> = ({
       currentStep,
       setCurrentStep,
       resetBreadState,
+      timers,
+      addTimers,
+      removeTimers,
     }),
-    [currentStep, selectedBread, resetBreadState]
+    [
+      currentStep,
+      selectedBread,
+      resetBreadState,
+      timers,
+      addTimers,
+      removeTimers,
+    ]
   );
 
   return (
