@@ -7,3 +7,9 @@ export type RecipeStep =
   | "Baking"
   | null;
 export type BreadItem = { name: SupportedBreads; description: string };
+export type BakingStep = {
+  id: string;
+  title: string;
+  description: string;
+  timer?: number;
+};

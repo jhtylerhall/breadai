@@ -1,6 +1,6 @@
 import { useBread } from "@/context/BreadContext";
 import { TimerEvent } from "@/types/Time";
-import { memo, useCallback, useEffect, useState } from "react";
+import { memo, useCallback, useState } from "react";
 import { View, Text, Pressable } from "react-native";
 import { IconButton, MD3Colors } from "react-native-paper";
 import { CountdownCircleTimer } from "react-native-countdown-circle-timer";

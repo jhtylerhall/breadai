@@ -1,4 +1,15 @@
-export const SOURDOUGH_STEPS = [
+import { BakingStep } from "@/types/Bread";
+
+export const BakingIndex = {
+  gather: 0,
+  mix: 1,
+  bulk_fermentation: 2,
+  shape: 3,
+  proof: 4,
+  bake: 5,
+};
+
+export const SOURDOUGH_STEPS: BakingStep[] = [
   {
     id: "gather",
     title: "Gather Ingredients",
