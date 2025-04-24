@@ -8,8 +8,7 @@ function BottomNavComponent() {
 
   const routes = useMemo(
     () => [
-      { key: "", title: "Home", focusedIcon: "home" },
-      { key: "recipes", title: "Recipes", focusedIcon: "baguette" },
+      { key: "", title: "Recipes", focusedIcon: "baguette" },
       { key: "achievements", title: "Achievements", focusedIcon: "trophy" },
     ],
     []

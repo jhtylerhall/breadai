@@ -11,7 +11,6 @@ export default function SnackbarView() {
       <Snackbar
         visible={visible}
         onDismiss={dismiss}
-        duration={3000}
         action={{
           label: "OK",
           onPress: dismiss,
