@@ -37,3 +37,9 @@ export const SOURDOUGH_STEPS = [
     timer: 2400,
   },
 ];
+
+export const GATHER_INGREDIENTS = [
+  { id: "flour", label: "Flour", amount: "2 cups" },
+  { id: "water", label: "Water", amount: "3 tbsp" },
+  { id: "oven", label: "Pre-heat oven", amount: "324°F" },
+];
