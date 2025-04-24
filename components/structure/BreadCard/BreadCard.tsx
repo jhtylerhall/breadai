@@ -33,10 +33,7 @@ function BreadCardComponent(props: BreadCardProps) {
           className="justify-between p-4"
           style={{ height: cardHeight }}
         >
-          <Text
-            variant="titleLarge"
-            className="text-bread font-semibold text-center"
-          >
+          <Text variant="titleLarge" className="font-semibold text-center">
             {bread.name}
           </Text>
 

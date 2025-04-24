@@ -1,14 +1,16 @@
-import { MD3LightTheme as DefaultTheme } from 'react-native-paper';
+import { MD3LightTheme } from "react-native-paper";
+
+// primary: "#F4A261", // still used for buttons, accents
+// onPrimary: "#000000", // text ON primary-colored surfaces
+// secondary: "#2A9D8F",
+// background: "#FFF8F0",
+// surface: "#FFFFFF",
+// text: "#333333", // default text color
 
 const theme = {
-  ...DefaultTheme,
+  ...MD3LightTheme,
   colors: {
-    ...DefaultTheme.colors,
-    primary: '#F4A261',        // warm bread orange 🍞
-    secondary: '#2A9D8F',      // accent teal
-    background: '#FFF8F0',     // soft off-white
-    surface: '#FFFFFF',
-    text: '#333333',
+    ...MD3LightTheme.colors,
   },
 };
 

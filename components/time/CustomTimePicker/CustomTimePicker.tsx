@@ -2,12 +2,12 @@ import { Dispatch, memo, useCallback, useMemo, useState } from "react";
 import { View } from "react-native";
 import {
   Button,
-  Icon,
   IconButton,
   MD3Colors,
   Modal,
   Portal,
   Text,
+  TextInput,
 } from "react-native-paper";
 import { Picker } from "@react-native-picker/picker";
 import { useBread } from "@/context/BreadContext";
@@ -28,6 +28,7 @@ const CustomTimePickerComponent = ({
   const { addTimers } = useBread();
   const [hoursToWait, setHoursToWait] = useState(0);
   const [minutesToWait, setMinutesToWait] = useState(0);
+  const [description, setDescription] = useState("");
   const now = useMemo(() => new Date(), []);
   const futureTime = useMemo(() => {
     const target = new Date(now);
@@ -43,9 +44,11 @@ const CustomTimePickerComponent = ({
   const close = useCallback(() => setVisible(false), [setVisible]);
   const add = useCallback(() => {
     const id = uuid.v4();
-    addTimers([{ id, hours: hoursToWait, minutes: minutesToWait }]);
-    close()
-  }, [hoursToWait, minutesToWait]);
+    addTimers([
+      { id, hours: hoursToWait, minutes: minutesToWait, description },
+    ]);
+    close();
+  }, [addTimers, close, hoursToWait, minutesToWait, description]);
 
   return (
     <Portal>
@@ -63,7 +66,16 @@ const CustomTimePickerComponent = ({
               onPress={close}
             />
           </View>
-          <Text className="text-lg font-bold">Set Wait Time</Text>
+          <View className={"h-10 pb-2"}>
+            <TextInput
+              label="Description"
+              value={description}
+              onChangeText={(text) => setDescription(text)}
+              placeholder="Set Wait Time"
+              theme={{ colors: { primary: "black" } }}
+            />
+          </View>
+
           <View className="flex-row justify-center space-x-6 w-full">
             <View className="items-center">
               <Text className="mb-1">Hours</Text>
@@ -94,7 +106,11 @@ const CustomTimePickerComponent = ({
             ⏰ Ready at: {futureTimeDisplay}
           </Text>
           <View className="flex-row space-x-4 pt-2 ml-auto">
-            <Button mode="outlined" onPress={add}>
+            <Button
+              theme={{ colors: { primary: "black" } }}
+              mode="outlined"
+              onPress={add}
+            >
               Create
             </Button>
           </View>

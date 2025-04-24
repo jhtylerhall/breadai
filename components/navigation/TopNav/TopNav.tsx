@@ -1,39 +1,64 @@
 import { memo, useState, useCallback } from "react";
 import { Appbar } from "react-native-paper";
-import { Image, View } from "react-native";
+import { Image, View, ScrollView } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
+
 import MainIcon from "@/assets/images/icons/MainIcon.png";
 import { CustomTimePicker } from "@/components/time/CustomTimePicker/CustomTimePicker";
-import { useBread } from "@/context/BreadContext";
 import { Timers } from "@/components/time/Timers/Timers";
 
 function TopNavComponent() {
-  const { timers } = useBread();
   const [timePickerVisible, setTimePickerVisble] = useState(false);
+
   const onPressTimer = useCallback(() => {
     setTimePickerVisble(true);
   }, []);
+
   const onPressAccount = useCallback(() => {
     // TODO: open account page
   }, []);
 
   return (
     <View>
-      <CustomTimePicker
-        visible={timePickerVisible}
-        setVisible={setTimePickerVisble}
-      />
-      <Appbar.Header className="bg-bread">
-        {/* TODO: have back action control going back in steps */}
-        {/* <Appbar.BackAction onPress={() => {}} /> */}
+      {timePickerVisible && (
+        <CustomTimePicker
+          visible={timePickerVisible}
+          setVisible={setTimePickerVisble}
+        />
+      )}
+
+      <Appbar.Header className="bg-bread flex-row items-center justify-between">
+        {/* Logo */}
         <Image
           source={MainIcon}
           className="w-9 h-9 ml-2 rounded-full"
           resizeMode="contain"
         />
-        <Timers />
-        <Appbar.Content title="" />
-        <Appbar.Action icon="timer" onPress={onPressTimer} />
-        <Appbar.Action icon="account" onPress={onPressAccount} />
+        <View className="relative flex-1 mx-2">
+          <ScrollView
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={{ flexGrow: 1, alignItems: "center" }}
+          >
+            <Timers />
+          </ScrollView>
+          <LinearGradient
+            colors={["transparent", "#f4a261"]}
+            style={{
+              position: "absolute",
+              right: 0,
+              top: 0,
+              bottom: 0,
+              width: 24,
+              zIndex: 10,
+            }}
+            pointerEvents="none"
+          />
+        </View>
+        <View className="flex-row items-center space-x-1 mr-2">
+          <Appbar.Action icon="timer" onPress={onPressTimer} />
+          <Appbar.Action icon="account" onPress={onPressAccount} />
+        </View>
       </Appbar.Header>
     </View>
   );

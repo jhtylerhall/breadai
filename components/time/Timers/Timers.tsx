@@ -6,9 +6,9 @@ import { Timer } from "../Timer/Timer";
 function TimersComponent() {
   const { timers } = useBread();
   return (
-    <View className="inline-flex px-2">
+    <View className="flex-row px-2 items-center space-x-2">
       {timers.map((timer) => (
-        <Timer timer={timer} />
+        <Timer key={timer.id} timer={timer} />
       ))}
     </View>
   );
