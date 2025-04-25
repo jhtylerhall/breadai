@@ -18,32 +18,37 @@ function BreadCardComponent(props: BreadCardProps) {
   const cardHeight = height * 0.75;
 
   return (
-    <Card
-      className="mx-2 shadow-md rounded-xl overflow-hidden"
-      style={{ width: cardWidth, height: cardHeight } as ViewStyle}
-      mode="outlined"
-    >
-      <ImageBackground
-        source={breadImages[bread.name]}
-        resizeMode="cover"
-        style={{ height: cardHeight }}
-        imageStyle={{ opacity: 0.8 }}
+    <View className="flex-1">
+      <Text
+        variant="titleLarge"
+        className="font-semibold text-center underline"
       >
-        <Card.Content
-          className="justify-between p-4"
+        {bread.name}
+      </Text>
+      <Card
+        className="mx-2 shadow-md rounded-xl overflow-hidden"
+        style={{ width: cardWidth, height: cardHeight } as ViewStyle}
+        mode="outlined"
+      >
+        <ImageBackground
+          source={breadImages[bread.name]}
+          resizeMode="cover"
           style={{ height: cardHeight }}
+          imageStyle={{ opacity: 0.8 }}
         >
-          <Text variant="titleLarge" className="font-semibold text-center">
-            {bread.name}
-          </Text>
-
-          <View className="pb-2 flex flex-row justify-evenly items-center">
-            <StartRecipe bread={bread} />
-            <StartBaking bread={bread} />
-          </View>
-        </Card.Content>
-      </ImageBackground>
-    </Card>
+          <Card.Content
+            className="flex-1 justify-between p-4"
+            style={{ height: cardHeight }}
+          >
+            <View className="flex-1" />
+            <View className="pb-2 flex flex-row justify-evenly items-center">
+              <StartRecipe bread={bread} />
+              <StartBaking bread={bread} />
+            </View>
+          </Card.Content>
+        </ImageBackground>
+      </Card>
+    </View>
   );
 }
 
