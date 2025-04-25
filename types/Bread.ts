@@ -7,9 +7,11 @@ export type RecipeStep =
   | "Baking"
   | null;
 export type BreadItem = { name: SupportedBreads; description: string };
-export type BakingStep = {
+export interface BakingStep {
   id: string;
   title: string;
-  description: string;
+  description?: string;
   timer?: number;
-};
+  ingredients?: { id: string; label: string; amount: string }[];
+  referenceImages?: (string | number)[];
+}
