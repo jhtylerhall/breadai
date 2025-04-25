@@ -18,7 +18,7 @@ function BreadCarouselComponent() {
 
   const renderFlatListItem = useCallback(
     ({ item }: { item: BreadItem }) => <BreadCard bread={item} />,
-    [cardWidth]
+    []
   );
 
   return (

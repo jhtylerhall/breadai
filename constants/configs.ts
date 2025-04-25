@@ -6,4 +6,10 @@ const breadImages: Record<SupportedBreads, any> = {
   Focaccia: require("@/assets/images/breads/Focaccia.png"),
 };
 
-export { breadImages };
+const ingredientImages: Record<string, any> = {
+  flour: require("@/assets/images/icons/flour.png"),
+  water: require("@/assets/images/icons/water.png"),
+  oven: require("@/assets/images/icons/oven.png"),
+};
+
+export { breadImages, ingredientImages };
